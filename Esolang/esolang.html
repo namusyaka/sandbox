@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<title>Esolang</title>
+<script type="text/javascript" src="./src/brainfuck.js"></script>
+<script type="text/javascript" src="./src/ook.js"></script>
+<script type="text/javascript" src="./src/monamona.js"></script>
+<script type="text/javascript">
+onload = function () {
+
+  var trs = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+
+  function toObjectName (str) { return str[0].toUpperCase() + str.substr(1) };
+
+  for(var i = 0, tr; tr = trs[i]; ++i) {
+    var esolang  = new window[toObjectName(tr.id)]();
+    var textarea = tr.getElementsByTagName('textarea')[0];
+    textarea.onfocus = function () { this.select() };
+    tr.getElementsByTagName('td')[1].appendChild(document.createTextNode(esolang.run(textarea.value)));
+  }
+
+};
+</script>
+<style type="text/css">
+body {
+	width: 900px;
+	margin: 10px auto 10px;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+table, th, td { border: 1px solid #000; }
+textarea { width: 100%; }
+</style>
+
+<h1>Esolang</h1>
+
+<ul>
+  <li>手抜きである点に注意
+  <li>フリーズするかもしれません
+  <li><a href="./README.mkdn">README</a>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th>言語名
+      <th>Hello World!
+      <th>実行結果
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="brainfuck">
+      <th>Brainfuck
+      <td><textarea>+++++++++[>++++++++<-]>.<++++[>+++++++<-]>+.+++++++..+++.<++++++++[>----------<-]>+.<+++++++[>++++++++<-]>-.<+++++[>+++++<-]>-.+++.------.--------.<++++++++[>--------<-]>---.</textarea>
+      <td id="brainfuck-result">
+    </tr>
+    <tr id="ook">
+      <th>Ook!
+      <td><textarea>Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook? Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook? Ook. Ook. Ook? Ook. Ook? Ook. Ook? Ook. Ook? Ook. Ook! Ook! Ook? Ook! Ook. Ook? Ook. Ook. Ook. Ook. Ook! Ook. Ook. Ook? Ook. Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook. Ook? Ook. Ook. Ook. Ook. Ook! Ook. Ook? Ook. Ook? Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook. Ook? Ook! Ook. Ook. Ook. Ook. Ook. Ook. Ook. Ook! Ook. Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook! Ook. Ook. Ook? Ook. Ook. Ook! Ook. Ook. Ook? Ook! Ook.</textarea>
+      <td id="ook-result">
+    </tr>
+    <tr id="monamona">
+      <th>MONAmona
+      <td><textarea>NNNNNNNNNNnMNNNNNNNMNNNNNNNNNNMNNNMNOOOOAaMNNoMNoNNNNNNNooNNNoMNNoOONNNNNNNNNNNNNNNoMoNNNoAAAAAAoAAAAAAAAoMNoMo</textarea>
+      <td id="monamona-result">
+    </tr>
+  </tbody>
+</table>
+
+</html>
