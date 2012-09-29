@@ -1,5 +1,5 @@
 var SubHTMLCollection = function (collection) {
-  this.collection = Array.slice(collection);
+  this.collection = Array.prototype.slice.call(collection);
   return this;
 };
 
