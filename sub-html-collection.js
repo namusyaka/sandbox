@@ -1,5 +1,7 @@
 var SubHTMLCollection = function (collection) {
-  this.collection = Array.apply(null, collection);
+  this.collection = [];
+  for(var i = 0, element; element = collection[i]; ++i)
+    this.collection.push(element);
   return this;
 };
 
