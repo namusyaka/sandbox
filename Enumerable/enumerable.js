@@ -11,7 +11,7 @@
     init : function (data) {
       if(data instanceof Array) {
         this._items = data;
-      } else if(data instanceof HTMLCollection) {
+      } else if('length' in data) {
         this._items = [];
         for(var i = 0; i < data.length; ++i)
           this._items.push(data[i]);
