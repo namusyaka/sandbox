@@ -1,8 +1,5 @@
 (function (global) {
 
-  if(typeof HTMLCollection === 'undefined')
-    HTMLCollection = function () {};
-
   var Enumerable = function (data) {
     return (this instanceof Enumerable) ? this.init(data) : new Enumerable(data);
   };
