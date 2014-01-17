@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stdlib.h>
 
+VALUE cSuconv;
+
 static VALUE suconv_s_encode(int argc, VALUE *argv, VALUE klass) {
 
   char *str    = StringValuePtr(argv[0]);
@@ -54,7 +56,7 @@ static VALUE suconv_s_decode(int argc, VALUE *argv, VALUE klass) {
 }
 
 void Init_Suconv(void) {
-  VALUE cSuconv = rb_define_module("Suconv");
+  cSuconv = rb_define_module("Suconv");
   rb_define_module_function(cSuconv, "encode", suconv_s_encode, -1);
   rb_define_module_function(cSuconv, "decode", suconv_s_decode, -1);
 }
